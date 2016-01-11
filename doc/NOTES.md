@@ -155,4 +155,4 @@ Scenarios
 
 # Useful resources
 
-- 
+- Example Perl 6 distro: https://github.com/sjn/perl6-example-dist 
