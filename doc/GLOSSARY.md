@@ -1,0 +1,47 @@
+## Terms
+
+- Core perl: the core perl distribution, including perl6 executable, any core modules, virtual machines and other requirements, as defined by the #perl6 community.
+- OS: Operative System or distribution (e.g. RedHat Linux, Debian Linux, FreeBSD, Solaris, Microsoft Windows, Sailfish OS, etc.) running on a specified hardware platform.
+- Installation sequence (the "The Perl 6 module deployment stanza")
+    - Consists of several steps. All of these should at some point be run, but they don't have to be run "at the same time".
+    - The sequence has the following steps:
+        - Unpack/Update source
+        - Check if dependencies are met
+        - Build
+	        - Apply patches
+		   - Generate data files
+		   - Apply filters
+		   - Create build directory
+        - Pre-install test of everything it the build directory
+        - Optional Preparatory Install into a staging area
+        - Install
+        - Optional Install-tests
+        - Optional Post-install test, if tests and test dependencies have been installed
+- Installation Scenarios (what are we trying to achieve?):
+    - Module install - a simple module, nothing fancy going on here. File types may include .pm, .pm6, .pod, .pl and .pl6.
+    - Application install - Installation into a application location (e.g. /opt/company/appstack-1.0/...).  Files may include the same as in a Module install, plus any other file types found in a Application install. This may include modules, templates, static files, supporting binaries, internationalization files, ...
+    - Packaging install - Setting up a installation tree suitable to make a RPM or DEB package out of a Module install or an Application install.
+    - Image install - Installation of a Module install or Application install into a Docker image, chroot(1) jail, OpenSolaris container or equivalent.
+       - The install has to be self-contained, without any unresolved external dependencies.
+- Installation purpose: An installation as needed to fulfill a specific purpose. This may include:
+    - OS vendor preparation install (proposal: "System preparation install") - Installation as done by a packager, into a subtree that is later to be made into a system package (.rpm, .deb, etc.), intended for distro users or distro developers.
+        - Image, Packaging, Application, Module
+    - OS vendor install (proposal: "System install") - installation of an .rpm, .deb, image prepared by someone doing the above step ("System preparation install" and subsequent packaging)
+    - Company site install (proposal: "Application install") - Installation intended for overriding/superseeding/adding to OS vendor installs without touching the vendor installs. Used by companies and users.
+        - Image, Packaging, Application, Module
+    - Developer install (proposal: "Local install") - Installation into a user-specific tree, intended for that one specific user's testing purposes
+        - Application, Module
+- Source Location: The specific filesystem location and sub-directories where the software package intended to be installed, resides. The tree may be the result of one of the following actions:
+    - An extracted tarball
+    - A checked-out source code repository
+    - A URL pointing to a github repository (FIXME)
+    - An installed copy of the above options (used for "resetting" an existing/previous installation, if it somehow got modified) (FIXME)
+- Build Location: A temporary directory used during the build step to put all files-to-be-installed (including any generated, patched or filtered files) in such a way that it mimics the final installation locations.
+- Target location: The computed specific filesystem location used when copying files from a installation source for a specific type of installation purpose.
+- Installation staging area: A target location that is intended for creating an installation 
+- Software package: The module or application that we intend to install, as found in the Source Location
+- Deployment authority: The main packaging system used by an OS to do software installation, upgrades and other managment tasks.
+- Source authority: The publisher of the software you are about to install. This may be the original author (doing a regular release), someone else (co-releasing or creating a fork) or yourself (patching an upstream release before installation).
+- Installation target index: A list containing directories where files classified as a specific type are expected to be installed (the expected target location for a file type). An index like this is system distribution specific, and intended to be vendor-, system- and user-overridable.
+- Staging area: A directory intended to be used as a root for installation, instead of the normal root directory. The intention of installing into a staging area is to make it easy to create a package of the software so it may be installed with another installation authority.
+
