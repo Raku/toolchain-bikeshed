@@ -14,3 +14,6 @@ Discussion area for the Perl 6 toolchain
   * CUR tools to list installed dists, uninstall dists, list dist contents (basically `any(rpm|dpkg|pacman)` for CUR)
   * (for panda) don't install to `~/.perl6` by default if you don't have access to site installation; that, or at least make this configurable.  A really nice-to-have would be `--site`, `--user`, and `--lib` (which would install to a custom CUR, much like P5 `local::lib`).
   * `META6.json` could include a `doc_requires` for modules used only in `DOC` blocks.
+  * The [Elm](http://elm-lang.org/) package manager/ecosystem has some notable features I think it would be cool to adopt:
+    * The package manager has a `diff` function that will tell you the differences between two versions of a package (which functions were added or removed, and which functions' signatures changed)
+    * The Elm package ecosystem will refuse to accept a package update that changes the interface (removes a function or changes its signature) without bumping the semantic version
