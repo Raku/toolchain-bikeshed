@@ -2,8 +2,15 @@
 Discussion area for the Perl 6 toolchain
 
 # packaging issues
+For packaging you will want to build in a temporary directory with an unprivileged user, package the resulting files and make installation mostly just extracting of the resulting archive.
 * precomp files and the .deps files contain absolute paths which during rpm package build contain $RPM_BUILD_ROOT.
 * rev-deps have to be re-compiled on installing a package. This needs root and changing of installed files.
+* .rev-deps files of installed modules have to be changed when installing new modules.
+* existing files in the short/ directory have to be changed when installing new modules.
+
+# possible solutions
+* The .rev-deps files should be replaced by directories where you can simply drop in the additions.
+* The files in short/ should probably also be replaced by directories which unfortunatly will incure some runtime cost. This cost may be offset by adding enough information (ver, auth, api) to these files so we only need to load the dist file of the final candidate.
 
 # open tickets related to this discussion
 * https://rt.perl.org/Ticket/Display.html?id=127031
