@@ -60,3 +60,17 @@ For example:
   }
 }
 ```
+# Survey of the existing ecosystem
+Looking through the 41 Build.pm files currently in use in the Perl 6 ecosystem, the following use cases were identified:
+* supporting only certain platforms (Linux::Fuser)
+* checking external dependencies
+* Whatever Native::Resources::Build does
+* build a native lib
+* call some shell command to get build vars
+* git clone some test data
+* download dlls for Windows (IOW ensuring external requirements are met) (Gtk::Simple)
+* platform dependent make command? (Native::LibC)
+* run some Perl 6 script to actually create the Perl 6 code (Math--ThreeD)
+* building an external library from source (could just be moved to the Makefile) (p6-fcgi)
+* defaults for build variables (Inline::Scheme::Gambit)
+* re-creating make's dependency management in Perl 6 (v5)
