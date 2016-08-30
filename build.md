@@ -1,9 +1,14 @@
 # Declarative Build System
 We want to replace Build.pm by a declarative build system driven by entries in the META6.json.
 From systemd-init we can learn that this will probably need a lot of directives to cover all use cases but that this is still better than each dist implementing it new in a (badly maintained) build script.
+From Perl 5 we can learn, that we won't get this right the first time or even the second time.
 
 # Suggested structure in the META data
-The top level "build" key is the entry point for all build-related directives. It points to a hash possibly containing the following keys:
+The top level "builder" key specifies the name of the module used to build this distribution.
+This module must consume the Distribution::Builder role.
+As a start, Distribution::Builder::MakeFromJSON - a JSON driven Makefile generator is proposed.
+
+The top level "build" key is the entry point for MakeFromJSON's directives. It points to a hash possibly containing the following keys:
 For example:
 ```json
 {
