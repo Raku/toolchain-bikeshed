@@ -22,7 +22,7 @@ The key "p5helper" will cause the string "%p5helper%" in Makefile.in to be repla
 Values may be literals or hashes which further specify how to generate the value.
 
 ### library
-library values specify the names of resources which are native libraries. They will be expanded using $*VM.plattform-library-name to match what NativeCall does.
+library values specify the names of resources which are native libraries. They will be expanded using $*VM.platform-library-name to match what NativeCall does.
 E.g. "p5helper" will be expanded to "resources/libraries/libp5helper.so" on Linux or "resources\libraries\p5helper.dll" on Windows.
 Rationale: use as a Makefile target or an output option for a compiler.
 
