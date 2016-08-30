@@ -17,7 +17,7 @@ For example:
             "p5helper": {"library": "p5helper"},
             "perlopts": {"run": "perl -MExtUtils::Embed -e ccopts -e ldopts"}
         }
-    }                   
+    }
 }
 ```
 
@@ -69,7 +69,6 @@ For example:
 Looking through the 41 Build.pm files currently in use in the Perl 6 ecosystem, the following use cases were identified:
 * supporting only certain platforms (Linux::Fuser)
 * checking external dependencies
-* Whatever Native::Resources::Build does
 * build a native lib
 * call some shell command to get build vars
 * git clone some test data
