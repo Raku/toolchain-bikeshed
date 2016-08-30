@@ -28,7 +28,7 @@ Rationale: use as a Makefile target or an output option for a compiler.
 
 ### run
 Runs the given command on a shell and uses the output as value for the Makefile.in variable.
-The command can be a literal or again a hash for selection by plattform specifica.
+The command can be a literal or again a hash for selection by plattform specifics.
 The value hash would consist of a single key and a single value which is again a hash.
 
 Keys may be:
@@ -39,7 +39,7 @@ These refer to the $*KERNEL Perl 6 variable and its properties. Access to other,
 
 The values hash contains the different cases. E.g. "windows" or "linux" for kernel.name or an empty string as fallback if no other key matches.
 
-The plattform specifica hashes may be nested for building a selection tree.
+The plattform specifics hashes may be nested for building a selection tree.
 
 For example:
 ```json
