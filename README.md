@@ -19,7 +19,7 @@ For packaging you will want to build in a temporary directory with an unprivileg
 
 # nice to have
   * FIXED: Non-SHA filenames for installed modules (this doesn't have to be the case on disk, as long as backtraces include the original filenames)
-  * CUR tools to list installed dists, uninstall dists, list dist contents (basically `any(rpm|dpkg|pacman)` for CUR)
+  * IMPLEMENTED: CUR tools to list installed dists, uninstall dists, list dist contents (basically `any(rpm|dpkg|pacman)` for CUR)
   * (for panda) don't install to `~/.perl6` by default if you don't have access to site installation; that, or at least make this configurable.  A really nice-to-have would be `--site`, `--user`, and `--lib` (which would install to a custom CUR, much like P5 `local::lib`).
   * `META6.json` could include a `doc_requires` for modules used only in `DOC` blocks.
   * The [Elm](http://elm-lang.org/) package manager/ecosystem has some notable features I think it would be cool to adopt:
