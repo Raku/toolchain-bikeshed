@@ -14,7 +14,7 @@ For example:
 {
     "build": {
         "makefile-variables": {
-            "p5helper": {"library": "p5helper"},
+            "p5helper": {"resource": "libraries/p5helper"},
             "perlopts": {"run": "perl -MExtUtils::Embed -e ccopts -e ldopts"}
         }
     }
@@ -26,10 +26,12 @@ A hash containing names and values of variables that may be used in a Makefile.i
 The key "p5helper" will cause the string "%p5helper%" in Makefile.in to be replaced by the value given by the META file.
 Values may be literals or hashes which further specify how to generate the value.
 
-### library
-library values specify the names of resources which are native libraries. They will be expanded using $*VM.platform-library-name to match what NativeCall does.
+### resource
+resource values specify the names of resources bundled with the distribution. They will be expanded to the path of the named resource file.
+If the value starts with "libraries/" then it specifies a native library. It will be expanded using $*VM.platform-library-name to match what NativeCall does.
 E.g. "p5helper" will be expanded to "resources/libraries/libp5helper.so" on Linux or "resources\libraries\p5helper.dll" on Windows.
-Rationale: use as a Makefile target or an output option for a compiler.
+This matches the convention used for accessing the library through %?RESOURCES
+Rationale: use the library name as a Makefile target or an output option for a compiler.
 
 ### run
 Runs the given command on a shell and uses the output as value for the Makefile.in variable.
