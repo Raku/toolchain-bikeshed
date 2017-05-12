@@ -59,7 +59,7 @@ For example:
           "by-kernel.version": {
             "4": "perlopts-new-kernel.sh",
             "2.6": "perlopts-old-kernel.sh",
-            "": "perlopts-ancient-kernel.sh",
+            "": "perlopts-ancient-kernel.sh"
           }
         }
       }
