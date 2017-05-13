@@ -35,14 +35,24 @@ Rationale: use the library name as a Makefile target or an output option for a c
 
 ### run
 Runs the given command on a shell and uses the output as value for the Makefile.in variable.
-The command can be a literal or again a hash for selection by platform specifics.
-The value hash would consist of a single key and a single value which is again a hash.
+The command is given as an array of arguments that can be passed to run()
 
-Keys may be:
+## env
+Returns the environment variable with the given name.
+
+## Decision tree
+
+At any points in the META data, values can be determined from system properties. This is indicated by specifying a hash instead of a string.
+
+Keys in this hash may be:
 * "by-kernel.name"
 * "by-kernel.version"
 * ...
-These refer to the $*KERNEL Perl 6 variable and its properties. Access to other, yet to be determined variables is expected to be useful.
+* "by-distro.*"
+* "by-backend.*"
+* "by-env"
+* "by-env-exists"
+These refer to the $*KERNEL and $*DISTRO Perl 6 variable and its properties. Access to other, yet to be determined variables is expected to be useful.
 
 The values hash contains the different cases. E.g. "windows" or "linux" for kernel.name or an empty string as fallback if no other key matches.
 
@@ -68,7 +78,7 @@ For example:
 }
 ```
 # Survey of the existing ecosystem
-Looking through the 41 Build.pm files currently in use in the Perl 6 ecosystem, the following use cases were identified:
+Looking through the 47 Build.pm files currently in use in the Perl 6 ecosystem, the following use cases were identified:
 * supporting only certain platforms (Linux::Fuser)
 * checking external dependencies
 * build a native lib
